@@ -28,6 +28,8 @@ function inserir(){
     var btn = document.getElementsByTagName("button");
     div.appendChild(btn);
     
+    nome.setAttribute("type","text");
+    nome.setAttribute("id","nome");
     tam.setAttribute("type","text");
     tam.setAttribute("id","tam");
     qt.setAttribute("type","numeric");
@@ -49,4 +51,61 @@ function quantidade(){
     return y;
 }
 
+ function nome(){
+    var z = document.getElementsById("nome");
+    return z;
+}
+
+function montarTabela(resp){
+    var table = document.createElement("table");
+    var tHead = document.createElement("thead");
+    var trowh = document.createElement("tr");
+    var thnome = document.createElement("th");
+    var thtam = document.createElement("th");
+    var thqt = document.createElement("th");
+    var thpf = document.createElement("th");
+    
+    thnome.innerHTML = "NOME";
+    thtam.innerHTML = "TAMANHO";
+    thqt.innerHTML = "QUANTIDADE";
+    thpf.innerHTML = "PREÇO TOTAL";
+    
+    var vetObj = resp.dados;
+    var tbody = document.createElement("tbody");
+    for (var i=0; i < vetObj.length; i++){
+        var tr = document.createElement("tr"); 
+        var tdNome = document.createElement("td"); 
+        var tdTam = document.createElement("td"); 
+        var tdQt = document.createElement("td"); 
+        var tdPf = document.createElement("td"); 
+        
+        tdNome.innerHTML = vetObj[i].nome;
+        tdTam.innerHTML = vetObj[i].tam;
+        tdQt.innerHTML = vetObj[i].qt;
+        tdPf.innerHTML = vetObj[i].tam*vetObj[i].qt;
+        
+        tr.appendChild(tdNome);
+        tr.appendChild(tdTam);
+        tr.appendChild(tdQt);
+        tr.appendChild(tdPf);
+        tbody.appendChild(tr);
+        
+    }
+    
+    tHead.appendChild(thnome);
+    tHead.appendChild(thtam);
+    tHead.appendChild(thqt);
+    tHead.appendChild(thpf);
+    table.appendChild(tHead);
+    table.appendChild(tbody);
+    
+    var div = document.querySelector(".tabela");
+    div.appendChild(table);
+    
+}
+
+
+function iniciarTabela(){
+    montarTabela({dados: [{nome:nome(); tam:tamanho(); qt:quantidade()}]});
+}
 
