@@ -24,28 +24,29 @@ function inserir(){
     form.appendChild(qt);
     div.appendChild(form);
     document.body.appendChild(div);
+    
+    var btn = document.getElementsByTagName("button");
+    div.appendChild(btn);
+    
+    tam.setAttribute("type","text");
+    tam.setAttribute("id","tam");
+    qt.setAttribute("type","numeric");
+    qt.setAttribute("id","qt");
+    
+    
+    
 }
 
 window.onload = inserir;
 
-function calcPreco(tam, qt){
-    var x = tam.inserir();
-    var y = qt.inserir();
-    
-    if(x == 'a3' || x == 'A3'){
-        x == 8;
-    } 
-    else if (x == 'a4' || x == 'A4'){
-        x == 4;
-    } 
-    else {
-        document.write("Tamanho do papel não disponível.");
-    }
-    
-    var resultado = (x + 16) * y;
-    
-    document.write("O valor final da sua encomenda é: "+resultado);
-    
-    
-    
+function tamanho(){
+    var x = document.getElementsById("tam");
+    return x;
 }
+
+function quantidade(){
+    var y = document.getElementsById("qt");
+    return y;
+}
+
+

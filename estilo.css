@@ -10,13 +10,28 @@ body {
 
 div {
     margin: auto;
-    padding: 10px;
+    padding: 30px;
     height: auto;
     width: 40%;
     border: solid 3px;
     border-color: #721a4a;
     border-radius: 10px;
     margin-top: 100px;
-    
+    color: #721a4a;
     
 }
+
+button {
+    background-color: #721a4a;
+    color: #FF1493;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Comfortaa', sans-serif;
+    position: absolute;
+    margin-left: 45%;
+    margin-top: 25%;
+}
+
+
+
