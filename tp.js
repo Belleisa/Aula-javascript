@@ -43,6 +43,14 @@ window.onload = inserir;
 
 function tamanho(){
     var x = document.getElementsById("tam");
+    
+    if(x == "A3" || x == "a3"){
+        x == 8;
+    } else if (x == "A4" || x == "a4"){
+        x == 4;
+    } else {
+        document.write("Tamanho de pôster não disponível")
+    }
     return x;
 }
 
@@ -79,10 +87,10 @@ function montarTabela(resp){
         var tdQt = document.createElement("td"); 
         var tdPf = document.createElement("td"); 
         
-        tdNome.innerHTML = vetObj[i].nome;
-        tdTam.innerHTML = vetObj[i].tam;
-        tdQt.innerHTML = vetObj[i].qt;
-        tdPf.innerHTML = vetObj[i].tam*vetObj[i].qt;
+        tdNome.innerHTML = vetObj[i].nome();
+        tdTam.innerHTML = vetObj[i].tamanho();
+        tdQt.innerHTML = vetObj[i].quantidade();
+        tdPf.innerHTML = (vetObj[i].tamanho()*vetObj[i].quantidade())+16;
         
         tr.appendChild(tdNome);
         tr.appendChild(tdTam);
@@ -106,6 +114,6 @@ function montarTabela(resp){
 
 
 function iniciarTabela(){
-    montarTabela({dados: [{nome:nome(); tam:tamanho(); qt:quantidade()}]});
+    montarTabela({dados: [{nome:nome(); tam:tamanho(); qt:quantidade()}]})
 }
 
